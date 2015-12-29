@@ -62,6 +62,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-accept-epoll" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/29/accept-epoll/" class="article-date">
+  <time datetime="2015-12-29T15:41:00.000Z" itemprop="datePublished">2015-12-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/29/accept-epoll/">accept与epoll惊群</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天打开 OneNote,发现里面躺着一篇很久以前写的笔记，现在将它贴出来。</p>
+<h2 id="1-__u4EC0_u4E48_u53EB_u60CA_u7FA4_u73B0_u8C61"><a href="#1-__u4EC0_u4E48_u53EB_u60CA_u7FA4_u73B0_u8C61" class="headerlink" title="1. 什么叫惊群现象"></a>1. 什么叫惊群现象</h2><p>首先，我们看看<a href="http://en.wikipedia.org/wiki/Thundering_herd_problem">维基百科对惊群的定义</a>:</p>
+<blockquote>
+<p>The thundering herd problem occurs when a large number of processes waiting for an event are awoken when that event occurs, but only one process is able to proceed at a time. After the processes wake up, they all demand the resource and a decision must be made as to which process can continue. After the decision is made, the remaining processes are put back to sleep, only to all wake up again to request access to the resource.</p>
+<p>This occurs repeatedly, until there are no more processes to be woken up. Because all the processes use system resources upon waking, it is more efficient if only one process was woken up at a time.</p>
+<p>This may render the computer unusable, but it can also be used as a technique if there is no other way to decide which process should continue (for example when programming with semaphores).</p>
+</blockquote>
+<p>简而言之，惊群现象（thundering herd）就是当多个进程和线程在同时阻塞等待同一个事件时，如果这个事件发生，会唤醒所有的进程，但最终只可能有一个进程/线程对该事件进行处理，其他进程/线程会在失败后重新休眠，这种性能浪费就是惊群。</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/29/accept-epoll/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/12/29/accept-epoll/" data-id="ciirkbb7v000058xomaymtbvw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/12/27/hello-world/" class="article-date">
@@ -97,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/27/hello-world/" data-id="ciionc2fq0000iexo37kxyczh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/12/27/hello-world/" data-id="ciirkbb8o000158xofqp4y3on" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,6 +183,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/12/29/accept-epoll/">accept与epoll惊群</a>
+          </li>
         
           <li>
             <a href="/2015/12/27/hello-world/">Hello World</a>
